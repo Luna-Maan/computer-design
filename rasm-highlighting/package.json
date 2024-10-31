@@ -1,0 +1,35 @@
+{
+  "name": "rasm-highlighting",
+  "displayName": "RASM_Highlighting",
+  "description": "Provides syntax highlighting for RASM files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "rasm",
+        "aliases": [
+          "RASM",
+          "rasm"
+        ],
+        "extensions": [
+          ".rasm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rasm",
+        "scopeName": "source.rasm",
+        "path": "./syntaxes/rasm.tmLanguage.json"
+      }
+    ]
+  }
+}

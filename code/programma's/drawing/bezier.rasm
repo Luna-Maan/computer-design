@@ -26,20 +26,20 @@ const input3 22
 inttof 1 one
 inttof 2 two
 
-
 ; loops until input3==0, then uses the input and input2 that are set at that moment as x and y for the first point
 ; then loops until input3==1, then the same for the second point
 ; then the same for point 3
 ; bezier curve from point 1 to point 3 atracted to point 2
+
 copy 1 22
 label loop
-copy <input> <pointer>
-inc <pointer> temp
-copy <input2> <temp>
-jumpNE <input3> <i> loop
-add 1 <i> i
-add <pointer> 2 pointer
-jumpne <i> 3 loop
+    copy <input> <pointer>
+    inc <pointer> temp
+    copy <input2> <temp>
+    jumpNE <input3> <i> loop
+    add 1 <i> i
+    add <pointer> 2 pointer
+    jumpne <i> 3 loop
 
 copy <x0> output
 copy <y0> output2
@@ -60,29 +60,30 @@ inttof 100 temp
 fdiv <dt> <temp> dt
 
 label main
-fsub <one> <t> eenmint
-fmult <eenmint> <eenmint> temp
-fmult <two> <eenmint> temp2
-fmult <temp2> <t> temp2
-fmult <t> <t> temp3
+    fsub <one> <t> eenmint
+    fmult <eenmint> <eenmint> temp
+    fmult <two> <eenmint> temp2
+    fmult <temp2> <t> temp2
+    fmult <t> <t> temp3
 
-fmult <temp> <x0> temp4
-fmult <temp2> <x1> temp5
-fmult <temp3> <x2> temp6
-fadd <temp4> <temp5> temp5
-fadd <temp5> <temp6> temp6
-ftoint <temp6> output
+    jumplt
+    fmult <temp> <x0> temp4
+    fmult <temp2> <x1> temp5
+    fmult <temp3> <x2> temp6
+    fadd <temp4> <temp5> temp5
+    fadd <temp5> <temp6> temp6
+    ftoint <temp6> output
 
-fmult <temp> <y0> temp4
-fmult <temp2> <y1> temp5
-fmult <temp3> <y2> temp6
-fadd <temp4> <temp5> temp5
-fadd <temp5> <temp6> temp6
-ftoint <temp6> output2
+    fmult <temp> <y0> temp4
+    fmult <temp2> <y1> temp5
+    fmult <temp3> <y2> temp6
+    fadd <temp4> <temp5> temp5
+    fadd <temp5> <temp6> temp6
+    ftoint <temp6> output2
 
-fadd <t> <dt> t
-copy <t> 23
-ftoint <t> temp
-jumplt <temp> 1 main
+    fadd <t> <dt> t
+    copy <t> 23
+    ftoint <t> temp
+    ujumplt <temp> 1 main
 
 exit

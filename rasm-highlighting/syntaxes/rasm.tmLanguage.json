@@ -1,0 +1,120 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "RASM",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#otherFirstWords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.other.f.rasm",
+					"match": "^\\s*f(add|sub|mult|div)\\b",
+					"captures": {
+						"1": {
+							"name": "string"
+						}
+					}
+				},
+				{
+					"name": "keyword.other.f.rasm",
+					"match": "^\\s*(f|u)(?i)(jump)(gt|eq|ge|lt|ne|le)?\\b",
+					"captures": {
+						"2": {
+							"name": "keyword.control.jump.rasm"
+						},
+						"3": {
+							"name": "string"
+						}
+					}
+				},
+				{
+					"name": "keyword.control.jump.rasm",
+					"match": "^\\s*(?i)(jump)(gt|eq|ge|lt|ne|le)?\\b",
+					"captures": {
+						"0": {
+							"name": "keyword.control.jump.rasm"
+						},
+						"1": {
+							"name": "string"
+						}
+					}
+				},
+				{
+					"name": "keyword.control.jump.rasm",
+					"match": "^\\s*(?i)(label)\\b"
+				},
+				{
+					"name": "keyword.other.rasm",
+					"match": "^\\s*(?i)(const|exit|call|ret|icall|iret|hlt)\\b"
+				}
+			]
+		},
+		"otherFirstWords": {
+			"patterns": [
+				{
+					"name": "string",
+					"match": "^\\s*(?i)(and|or|nand|nor|xor|xnor|test|not|high|add|addc|sub|subb|mult|div|inc|dec|shl|shr|shrc|rotl|rotr|copy|ftoint|inttof|copyptr)\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.semicolon.rasm",
+					"match": ";.*$"
+				},
+				{
+					"name": "comment.line.hash.rasm",
+					"match": "#.*$"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.prefixed.rasm",
+					"match": "\\b(0[xbd])([0-9A-Fa-f]+)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.constant.prefix.rasm"
+						},
+						"2": {
+							"name": "constant.numeric.value.rasm"
+						}
+					}
+				},
+				{
+					"name": "constant.numeric.decimal.rasm",
+					"match": "\\s[0-9A-fa-f]+\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.rasm",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.rasm",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.rasm"
+}
