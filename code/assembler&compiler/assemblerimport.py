@@ -33,7 +33,7 @@ while check:
     check = False
     for i in range(0,len(x)):
         if x[i].startswith("import"):
-            path = "programma's"
+            path = "programs"
             path = path + "\\" + x[i][7:]
             if path not in importlist:
                 importlist.append(path)
@@ -50,7 +50,7 @@ while check:
                 x.pop(i)
 
 
-#print(x)
+print(x)
 
 x = [i for i in x if i]                     #remove all empty lines
 for i in range(0,len(x)):                   #remove all comments

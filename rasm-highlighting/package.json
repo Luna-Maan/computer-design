@@ -22,6 +22,17 @@
           ".rasm"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "machine",
+        "aliases": [
+          "MACHINE",
+          "machine"
+        ],
+        "extensions": [
+          ".out"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [

@@ -1,0 +1,19 @@
+const output 20
+const i 0
+
+jump main
+
+label function
+copy <i> output
+add 1 <i> i
+ret
+
+label main
+copy 0 i
+call double
+copy 99 output
+exit
+
+label double
+call function
+ret

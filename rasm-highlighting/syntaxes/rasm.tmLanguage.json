@@ -23,7 +23,7 @@
 			"patterns": [
 				{
 					"name": "keyword.other.f.rasm",
-					"match": "^\\s*f(add|sub|mult|div)\\b",
+					"match": "^\\s*(?i)f(add|sub|mult|div)\\b",
 					"captures": {
 						"1": {
 							"name": "string"
@@ -32,7 +32,7 @@
 				},
 				{
 					"name": "keyword.other.f.rasm",
-					"match": "^\\s*(f|u)(?i)(jump)(gt|eq|ge|lt|ne|le)?\\b",
+					"match": "^\\s*(?i)(f|u)(jump)(gt|eq|ge|lt|ne|le)?\\b",
 					"captures": {
 						"2": {
 							"name": "keyword.control.jump.rasm"
@@ -61,6 +61,10 @@
 				{
 					"name": "keyword.other.rasm",
 					"match": "^\\s*(?i)(const|exit|call|ret|icall|iret|hlt)\\b"
+				},
+				{
+					"name": "keyword.control.rasm",
+					"match": "^\\s*(?i)(import)\\b"
 				}
 			]
 		},

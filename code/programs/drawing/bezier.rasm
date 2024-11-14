@@ -31,7 +31,10 @@ inttof 2 two
 ; then the same for point 3
 ; bezier curve from point 1 to point 3 atracted to point 2
 
+copy 0 pointer
+copy 0 i
 copy 1 22
+
 label loop
     copy <input> <pointer>
     inc <pointer> temp
