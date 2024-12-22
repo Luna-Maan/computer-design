@@ -48397,6 +48397,8 @@ copy 7883 bd22
 copy 7883 bd23
 copy 7883 bd24
 
+label again
+
 copy 0 i
 label loop0
 copy 0 j
@@ -48417,5 +48419,21 @@ inc <j> j
 jumplt <j> bd loop1
 inc <i> i
 jumplt <i> 100 loop0
+
+copy 0 i
+label loop2
+copy 0 j
+label loop3
+
+copy 0 output2
+copy <i> output0
+copy <j> output1
+
+inc <j> j
+jumplt <j> bd loop3
+inc <i> i
+jumplt <i> 100 loop2
+
+jump again
 
 exit
