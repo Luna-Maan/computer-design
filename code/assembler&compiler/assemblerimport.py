@@ -8,7 +8,7 @@ RomDataPath = r"C:\Users\pvano\OneDrive\Bureaublad\computer design\Digital\compu
 
 #the RomData.hex file is always written to the same location, so it can be read by the computer
 if len(sys.argv) == 1:
-    inputfile = "assembly.rasm"
+    inputfile = "output.rasm"
     outputfile = "MachineCode.out"
 elif len(sys.argv) == 2:
     inputfile = sys.argv[1]
@@ -66,12 +66,15 @@ for i in range(0,len(x)):                   #remove all comments
         x[i] = string[:index.start()]
     else:
         pass
-x = [i for i in x if i]
+
+#remove all empty lines or lines with only spaces
+x = [i for i in x if i.strip()]
 
 con = {}                                  #put all variables in con, then remove empty lines
 LineNumber = 0
 LabelLines = []
 for i in range(0,len(x)):                 #put labels in the dictionary (con)
+    print( x[i])
     parts = str.split(x[i])
     if parts[0] == 'label':
         con[parts[1]] = str(hex(LineNumber)[2:])
